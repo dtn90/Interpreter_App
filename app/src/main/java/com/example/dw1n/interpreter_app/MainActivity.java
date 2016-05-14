@@ -58,9 +58,16 @@ public class MainActivity extends AppCompatActivity {
         filler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(1);
-                Shape rectangle = shapeFactory.getRectangle(context, 100, 100, 200, 200);
-                shapeLayout.addView(rectangle);
+                ShapeFactory BWShapeFactory = AbstractShapeFactory.getShapeFactory(1);
+                Shape BWRectangle = BWShapeFactory.getRectangle(context, 100, 100, 200, 200);
+                ShapeFactory BGShapeFactory = AbstractShapeFactory.getShapeFactory(2);
+                Shape BGRectangle = BGShapeFactory.getRectangle(context, 300, 100, 400, 200);
+                ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(3);
+                Shape RORectangle = shapeFactory.getRectangle(context, 500, 100, 600, 200);
+
+                shapeLayout.addView(BWRectangle);
+                shapeLayout.addView(BGRectangle);
+                shapeLayout.addView(RORectangle);
             }
         });
     }

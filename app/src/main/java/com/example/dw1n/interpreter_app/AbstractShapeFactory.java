@@ -8,12 +8,12 @@ public class AbstractShapeFactory {
         if (style == 1) {
             return new BlackWhiteShapeFactory();
         }
-//        else if (style == 2) {
-//            return new BlueGreenShapeFactory();
-//        }
-//        else if (style == 3) {
-//            return new RedOrangeShapeFactory();
-//        }
+        else if (style == 2) {
+            return new BlueGreenShapeFactory();
+        }
+        else if (style == 3) {
+            return new RedOrangeShapeFactory();
+        }
 
         return null;
     }
