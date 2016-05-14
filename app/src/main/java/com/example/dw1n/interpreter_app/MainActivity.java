@@ -1,5 +1,6 @@
 package com.example.dw1n.interpreter_app;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -19,13 +20,16 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout shapeLayout;
     TextView log;
     EditText input;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_main);
         log = (TextView) findViewById(R.id.view_log);
         log.setMovementMethod(new ScrollingMovementMethod());
+        shapeLayout = (RelativeLayout) findViewById(R.id.shape_layout);
 
         Button clear_button = (Button) findViewById(R.id.button_clear);
         clear_button.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 lineNum = 0;
                 currentText = "";
                 log.setText(currentText);
+                shapeLayout.removeAllViews();
 
             }
         });
@@ -46,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                 input = (EditText) findViewById(R.id.view_input);
                 currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
                 log.setText(currentText);
+            }
+        });
+
+        Button filler = (Button) findViewById((R.id.filler));
+        filler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(1);
+                Shape circle = shapeFactory.getCircle(context, 100, 100, 100);
+                shapeLayout.addView(circle);
             }
         });
     }
