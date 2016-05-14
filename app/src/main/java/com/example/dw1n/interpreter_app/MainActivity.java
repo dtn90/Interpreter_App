@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(1);
-                Shape circle = shapeFactory.getCircle(context, 100, 100, 100);
-                shapeLayout.addView(circle);
+                Shape rectangle = shapeFactory.getRectangle(context, 100, 100, 200, 200);
+                shapeLayout.addView(rectangle);
             }
         });
     }

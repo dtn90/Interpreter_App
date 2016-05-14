@@ -11,9 +11,9 @@ public class BlackWhiteShapeFactory extends ShapeFactory{
         return new BlackWhiteCircle(context, x_coord, y_coord, radius);
     }
 
-//    @Override
-//    public Shape getRectangle(Context context, int x1_coord,
-//                              int y1_coord, int x2_coord, int y2_coord) {
-//        return new BlackWhiteRectangle(context);
-//    }
+    @Override
+    public Shape getRectangle(Context context, int x1_coord,
+                              int y1_coord, int x2_coord, int y2_coord) {
+        return new BlackWhiteRectangle(context, x1_coord, y1_coord, x2_coord, y2_coord);
+    }
 }
