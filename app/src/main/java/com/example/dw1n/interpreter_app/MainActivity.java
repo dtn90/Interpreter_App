@@ -14,18 +14,18 @@ import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
-    String currentText ="";
+    String currentText = "";
     int lineNum = 0;
     RelativeLayout shapeLayout;
-    TextView error;
+    TextView log;
     EditText input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        error = (TextView) findViewById(R.id.view_error);
-        error.setMovementMethod(new ScrollingMovementMethod());
+        log = (TextView) findViewById(R.id.view_log);
+        log.setMovementMethod(new ScrollingMovementMethod());
 
         Button clear_button = (Button) findViewById(R.id.button_clear);
         clear_button.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 lineNum = 0;
                 currentText = "";
-                error.setText(currentText);
+                log.setText(currentText);
 
             }
         });
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 lineNum++;
                 input = (EditText) findViewById(R.id.view_input);
                 currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
-                error.setText(currentText);
+                log.setText(currentText);
             }
         });
     }
