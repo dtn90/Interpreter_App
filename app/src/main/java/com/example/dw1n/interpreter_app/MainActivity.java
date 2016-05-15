@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         log.setMovementMethod(new ScrollingMovementMethod());
         shapeLayout = (RelativeLayout) findViewById(R.id.shape_layout);
 
+        // Clear button, removes all shapes from the layout and resets the ouput box
+        // Needs to be implemented to reset all the variables
+
         Button clear_button = (Button) findViewById(R.id.button_clear);
         clear_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Compile button
+
         Button compile_button = (Button) findViewById(R.id.button_compile);
         compile_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
                 log.setText(currentText);
             }
         });
+
+
+        // This button is to check whether the creation of shapes work. Each shape takes in
+        // coordinates as a parameter and the getShapeFactory takes in a style paramter 1-3
 
         Button filler = (Button) findViewById((R.id.filler));
         filler.setOnClickListener(new View.OnClickListener() {
