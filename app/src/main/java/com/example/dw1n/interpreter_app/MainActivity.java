@@ -53,8 +53,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 lineNum++;
+                // Parse input
+                // If input is not within language output error message
+                // create and add shape to relative layout
                 input = (EditText) findViewById(R.id.view_input);
                 currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
+
                 log.setText(currentText);
             }
         });
