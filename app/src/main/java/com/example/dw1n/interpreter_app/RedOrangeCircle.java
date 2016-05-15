@@ -10,8 +10,8 @@ import android.graphics.Paint;
  */
 public class RedOrangeCircle extends Shape {
     private Paint paint;
-    int red = Color.argb(255, 0, 0, 255);
-    int orange = Color.argb(255, 0, 255, 0);
+    int red = Color.argb(255, 255, 0, 0);
+    int orange = Color.argb(255, 255, 165, 0);
     int cx, cy, r = 0;
 
     public RedOrangeCircle(Context context, int x_coord, int y_cood, int radius) {

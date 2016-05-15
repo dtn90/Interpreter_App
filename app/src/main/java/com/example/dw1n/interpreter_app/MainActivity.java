@@ -67,16 +67,27 @@ public class MainActivity extends AppCompatActivity {
         filler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShapeFactory BWShapeFactory = AbstractShapeFactory.getShapeFactory(1);
-                Shape BWRectangle = BWShapeFactory.getRectangle(context, 100, 100, 200, 200);
-                ShapeFactory BGShapeFactory = AbstractShapeFactory.getShapeFactory(2);
-                Shape BGRectangle = BGShapeFactory.getRectangle(context, 300, 100, 400, 200);
-                ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(3);
-                Shape RORectangle = shapeFactory.getRectangle(context, 500, 100, 600, 200);
+                ShapeFactory BWShapeFactory1 = AbstractShapeFactory.getShapeFactory(1);
+                Shape BWRectangle = BWShapeFactory1.getRectangle(context, 100, 100, 200, 200);
+                ShapeFactory BGShapeFactory1 = AbstractShapeFactory.getShapeFactory(2);
+                Shape BGRectangle = BGShapeFactory1.getRectangle(context, 300, 100, 400, 200);
+                ShapeFactory shapeFactory1 = AbstractShapeFactory.getShapeFactory(3);
+                Shape RORectangle = shapeFactory1.getRectangle(context, 500, 100, 600, 200);
+
+                ShapeFactory BWShapeFactory2 = AbstractShapeFactory.getShapeFactory(1);
+                Shape BWCircle = BWShapeFactory2.getCircle(context, 150, 300, 50);
+                ShapeFactory BGShapeFactory2 = AbstractShapeFactory.getShapeFactory(2);
+                Shape BGCircle = BGShapeFactory2.getCircle(context, 350, 300, 50);
+                ShapeFactory ROShapeFactory2 = AbstractShapeFactory.getShapeFactory(3);
+                Shape ROCircle = ROShapeFactory2.getCircle(context, 550, 300, 50);
 
                 shapeLayout.addView(BWRectangle);
                 shapeLayout.addView(BGRectangle);
                 shapeLayout.addView(RORectangle);
+
+                shapeLayout.addView(BWCircle);
+                shapeLayout.addView(BGCircle);
+                shapeLayout.addView(ROCircle);
             }
         });
     }
