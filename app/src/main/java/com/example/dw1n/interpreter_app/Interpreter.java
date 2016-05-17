@@ -34,7 +34,7 @@ public class Interpreter {
     symbolTable.clear();
   }
 
-  public int getValue(String key){
+  public int getValue(String key) {
     return symbolTable.get(key);
   }
 
