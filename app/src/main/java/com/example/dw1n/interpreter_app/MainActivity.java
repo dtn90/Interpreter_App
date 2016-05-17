@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 //                interpreter.interpret(input.getText().toString());
                 interpreter.interpret("circle 150 300 200 3 ;");
+//                interpreter.interpret("rect 150 150 200 200 1 ;");
 //                currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
 
 //                log.setText(currentText);
