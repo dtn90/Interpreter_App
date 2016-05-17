@@ -19,6 +19,7 @@ package com.example.dw1n.interpreter_app;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 /**
  *
@@ -144,10 +145,14 @@ public class Interpreter {
   }
 
   private void drawRectangle(int x1, int y1, int x2, int y2, int style) {
-//    ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(style);
-//    Shape rectangle = shapeFactory.getRectangle(mContext, x1, y1, x2, y2);
-//    View v = ((MainActivity)mContext).findViewById(R.layout.activity_main);
+    ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(style);
+    Shape rectangle = shapeFactory.getRectangle(context, x1, y1, x2, y2);
+    View v = ((MainActivity)context).findViewById(R.id.shape_layout);
+    RelativeLayout rl = (RelativeLayout) v;
+    rl.addView(rectangle);
 
+
+//    v.addView(rectangle);
 
 //    System.out.println("Drawing rectangle: \nx1:" + x1 + "\ny1:" + y1
 //            + "\nx2::" + x2 + "\ny2:" + y2 + "\nstyle:" + style);

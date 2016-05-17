@@ -19,16 +19,14 @@ public class MainActivity extends AppCompatActivity {
     TextView log;
     EditText input;
     private Context context;
-    Interpreter interpreter;
+    Interpreter interpreter = new Interpreter(this);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-
         setContentView(R.layout.activity_main);
-        interpreter = new Interpreter(context);
         log = (TextView) findViewById(R.id.view_log);
         log.setMovementMethod(new ScrollingMovementMethod());
         shapeLayout = (RelativeLayout) findViewById(R.id.shape_layout);
@@ -59,10 +57,11 @@ public class MainActivity extends AppCompatActivity {
                 // If input is not within language output error message
                 // create and add shape to relative layout
                 input = (EditText) findViewById(R.id.view_input);
-                interpreter.interpret(input.getText().toString());
 
-//                currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
+                interpreter.interpret("rect 100 100 200 200 1 ;");
+//                interpreter.interpret(input.getText().toString());
 
+                currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
                 log.setText(input.getText());
             }
         });
