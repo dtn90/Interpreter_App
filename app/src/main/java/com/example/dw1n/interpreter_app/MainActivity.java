@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 currentText = "";
                 log.setText(currentText);
                 shapeLayout.removeAllViews();
-                interpreter.clear();
+//                interpreter.clear();
 
             }
         });
@@ -59,10 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 // create and add shape to relative layout
                 input = (EditText) findViewById(R.id.view_input);
 
-                interpreter.interpret(input.getText().toString());
-                currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
+//                interpreter.interpret(input.getText().toString());
+                interpreter.interpret("circle 150 300 200 3 ;");
+//                currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
 
-                log.setText(currentText);
+//                log.setText(currentText);
             }
         });
 
