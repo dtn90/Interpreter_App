@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-
-
 public class MainActivity extends AppCompatActivity {
     String currentText = "";
     int lineNum = 0;
@@ -21,13 +19,14 @@ public class MainActivity extends AppCompatActivity {
     TextView log;
     EditText input;
     private Context context;
-    Interpreter interpreter = new Interpreter();
+    Interpreter interpreter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-        interpreter.setContext(getApplicationContext());
+        interpreter = new Interpreter(context);
         setContentView(R.layout.activity_main);
         log = (TextView) findViewById(R.id.view_log);
         log.setMovementMethod(new ScrollingMovementMethod());
