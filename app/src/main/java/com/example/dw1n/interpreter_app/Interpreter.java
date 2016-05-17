@@ -34,6 +34,10 @@ public class Interpreter {
     symbolTable.clear();
   }
 
+  public int getValue(String key) {
+    return symbolTable.get(key);
+  }
+
   private ASTreeNode interpret(ASTreeNode node) {
 
     if (node.nodeType.equals("CircleCommandNode")) {
@@ -120,7 +124,7 @@ public class Interpreter {
       LiteralIntegerNode leftNode = (LiteralIntegerNode) interpret(divideNode.left);
       LiteralIntegerNode rightNode = (LiteralIntegerNode) interpret(divideNode.right);
 
-      int result = leftNode.value * rightNode.value;
+      int result = leftNode.value / rightNode.value;
 
       return new LiteralIntegerNode(result);
     } else if (node.nodeType.equals("LiteralInteger")) {

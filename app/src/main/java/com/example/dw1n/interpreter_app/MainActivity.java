@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                 interpreter.interpret(input.getText().toString());
                 currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
+
                 log.setText(currentText);
             }
         });

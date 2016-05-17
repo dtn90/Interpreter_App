@@ -65,7 +65,7 @@
         android:id="@+id/filler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Filler"
+        android:text="Test Shape"
         android:layout_above="@+id/button_compile"
         android:layout_toRightOf="@+id/view_log"
         android:layout_toEndOf="@+id/view_log" />
