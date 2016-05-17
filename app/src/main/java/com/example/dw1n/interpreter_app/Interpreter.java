@@ -28,10 +28,10 @@ public class Interpreter {
 
   private ParserTree parser;
   private SymbolTable symbolTable;
-  private Context mContext;
+  private Context context;
 
   public Interpreter(Context context) {
-    this.mContext = context;
+    this.context = context;
     parser = new ParserTree();
     symbolTable = SymbolTable.getInstance();
   }
@@ -144,8 +144,9 @@ public class Interpreter {
   }
 
   private void drawRectangle(int x1, int y1, int x2, int y2, int style) {
-    ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(style);
-    Shape rectangle = shapeFactory.getRectangle(mContext, x1, y1, x2 , y2);
+//    ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(style);
+//    Shape rectangle = shapeFactory.getRectangle(mContext, x1, y1, x2, y2);
+//    View v = ((MainActivity)mContext).findViewById(R.layout.activity_main);
 
 
 //    System.out.println("Drawing rectangle: \nx1:" + x1 + "\ny1:" + y1
