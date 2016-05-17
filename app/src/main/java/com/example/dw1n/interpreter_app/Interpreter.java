@@ -5,18 +5,6 @@
  */
 package com.example.dw1n.interpreter_app;
 
-//import interpreter.ASTNodes.ASTreeNode;
-//import interpreter.ASTNodes.MultiplyNode;
-//import interpreter.ASTNodes.DeclarationNode;
-//import interpreter.ASTNodes.PlusNode;
-//import interpreter.ASTNodes.EqualNode;
-//import interpreter.ASTNodes.IdentifierNode;
-//import interpreter.ASTNodes.RectCommandNode;
-//import interpreter.ASTNodes.MinusNode;
-//import interpreter.ASTNodes.CircleCommandNode;
-//import interpreter.ASTNodes.DivideNode;
-//import interpreter.ASTNodes.LiteralIntegerNode;
-
 import android.content.Context;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -40,6 +28,10 @@ public class Interpreter {
   public void interpret(String input) {
     ASTreeNode root = parser.parse(input);
     interpret(root);
+  }
+
+  public void clear() {
+    symbolTable.clear();
   }
 
   private ASTreeNode interpret(ASTreeNode node) {
@@ -140,21 +132,19 @@ public class Interpreter {
   }
 
   private void drawCircle(int x, int y, int r, int style) {
-    System.out.println("Drawing circle: \nx:" + x + "\ny:" + y
-            + "\nradius:" + r + "\nstyle:" + style);
+    ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(style);
+    Shape circle = shapeFactory.getCircle(context, x, y, r);
+    View v = ((MainActivity)context).findViewById(R.id.shape_layout);
+    RelativeLayout shapeLayout = (RelativeLayout) v;
+    shapeLayout.addView(circle);
+
   }
 
   private void drawRectangle(int x1, int y1, int x2, int y2, int style) {
     ShapeFactory shapeFactory = AbstractShapeFactory.getShapeFactory(style);
     Shape rectangle = shapeFactory.getRectangle(context, x1, y1, x2, y2);
     View v = ((MainActivity)context).findViewById(R.id.shape_layout);
-    RelativeLayout rl = (RelativeLayout) v;
-    rl.addView(rectangle);
-
-
-//    v.addView(rectangle);
-
-//    System.out.println("Drawing rectangle: \nx1:" + x1 + "\ny1:" + y1
-//            + "\nx2::" + x2 + "\ny2:" + y2 + "\nstyle:" + style);
+    RelativeLayout shapeLayout = (RelativeLayout) v;
+    shapeLayout.addView(rectangle);
   }
 }

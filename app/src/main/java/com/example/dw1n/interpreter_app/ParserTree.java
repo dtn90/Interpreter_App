@@ -5,19 +5,6 @@
  */
 package com.example.dw1n.interpreter_app;
 
-//import interpreter.ASTNodes.ASTreeNode;
-//import interpreter.ASTNodes.MultiplyNode;
-//import interpreter.ASTNodes.DeclarationNode;
-//import interpreter.ASTNodes.PlusNode;
-//import interpreter.ASTNodes.EqualNode;
-//import interpreter.ASTNodes.BinaryOperatorNode;
-//import interpreter.ASTNodes.IdentifierNode;
-//import interpreter.ASTNodes.RectCommandNode;
-//import interpreter.ASTNodes.MinusNode;
-//import interpreter.ASTNodes.CircleCommandNode;
-//import interpreter.ASTNodes.LiteralIntegerNode;
-//import interpreter.ASTNodes.DivideNode;
-
 /**
  *
  * @author Flex
