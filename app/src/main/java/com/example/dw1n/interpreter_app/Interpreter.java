@@ -114,7 +114,7 @@ public class Interpreter {
       if (arg5Node.nodeType.equals("IdentifierNode")) {
         s = symbolTable.get(((IdentifierNode) arg5Node).name);
       } else if (arg4Node.nodeType.equals("LiteralIntegerNode")) {
-        s = ((LiteralIntegerNode) arg4Node).value;
+        s = ((LiteralIntegerNode) arg5Node).value;
       }
 
       drawRectangle(x1, y1, x2, y2, s);
