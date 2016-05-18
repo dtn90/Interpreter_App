@@ -101,7 +101,7 @@ public class Tokenizer {
     } else if (Pattern.matches("\\d+", tokenStr)) {
       token = new Token("LiteralInteger", tokenStr);
     } else {
-      throw new RuntimeException("Invalid Token Found! '" + tokenStr + "'");
+      throw new TokenizerRuntimeException("Invalid Token Found! '" + tokenStr + "'");
     }
 
     return token;
