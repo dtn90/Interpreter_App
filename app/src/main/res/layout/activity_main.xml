@@ -9,12 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dw1n.interpreter_app.MainActivity">
 
-    <!--<TextView-->
-        <!--android:id="@+id/text_view"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Hello World!" />-->
-
     <RelativeLayout
         android:id="@+id/shape_layout"
         android:layout_width="match_parent"

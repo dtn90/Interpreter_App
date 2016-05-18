@@ -55,19 +55,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 lineNum++;
                 input = (EditText) findViewById(R.id.view_input);
-
-                try {
-                    interpreter.interpret(input.getText().toString());
+                if (input.getText().toString().indexOf("#") >= 0)
+                {
                     currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
-                } catch(TokenStreamRuntimeException e) {
-                    currentText += Integer.toString(lineNum) + ": " + "Syntax Error! " + "\n";
-                } catch(CharStreamRuntimeException e) {
-                    currentText += Integer.toString(lineNum) + ": " + "Syntax Error! " + "\n";
-                } catch(TokenizerRuntimeException e) {
-                    currentText += Integer.toString(lineNum) + ": " + "Syntax Error! " + e + "\n";
-                } catch(RuntimeException e) {
-                    currentText += Integer.toString(lineNum) + ": " + "Runtime Error! " + "\n";
                 }
+                else
+                {
+                    try {
+                        interpreter.interpret(input.getText().toString());
+                        currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
+                    } catch(TokenStreamRuntimeException e) {
+                        currentText += Integer.toString(lineNum) + ": " + "Syntax Error! " + "\n";
+                    } catch(CharStreamRuntimeException e) {
+                        currentText += Integer.toString(lineNum) + ": " + "Syntax Error! " + "\n";
+                    } catch(TokenizerRuntimeException e) {
+                        currentText += Integer.toString(lineNum) + ": " + "Syntax Error! " + e + "\n";
+                    } catch(RuntimeException e) {
+                        currentText += Integer.toString(lineNum) + ": " + "Runtime Error! " + "\n";
+                    }
+                }
+
 
                 log.setText(currentText);
             }
