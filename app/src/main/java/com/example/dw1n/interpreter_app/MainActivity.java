@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currentText += "*************************** \n" +
-                        " Testing Shape Creation... \n" +
+                        "  Testing Shape Creation \n" +
                         "*************************** \n";
 
                 currentText += "rect 100 100 200 200 1 ; \n";
@@ -91,19 +91,28 @@ public class MainActivity extends AppCompatActivity {
                 interpreter.interpret("circle 550 300 50 3 ;");
 
                 currentText += "*************************** \n" +
-                        " Testing Variable Arithmetic... \n" +
+                        "Testing Variable Arithmetic \n" +
                         "*************************** \n";
 
-                currentText += "int a = 100 ; \n";
-                currentText += "int b = 300 ; \n";
-                currentText += "a = a + b ; \n";
+                currentText += "int a = 5 ; \n";
+                interpreter.interpret("int a = 5 ;");
+                currentText += "Stored value: a = " + Integer.toString(interpreter.getValue("a")) +"\n";
 
-                interpreter.interpret("int a = 100 ;");
-                interpreter.interpret("int b = 300 ;");
-                interpreter.interpret("a = a + b ;");
-                currentText += "*************************** \n" +
-                        "Evaluating a = a + b; \n *************************** \n";
-                currentText += "a = " + Integer.toString(interpreter.getValue("a"));
+                currentText += "int b = 100 ; \n";
+                interpreter.interpret("int b = 100 ;");
+                currentText += "Stored value: b = " + Integer.toString(interpreter.getValue("b")) +"\n";
+
+                currentText += "int c =  a * b; \n";
+                interpreter.interpret("int c = a * b ;");
+                currentText += "Stored value: c = " + Integer.toString(interpreter.getValue("c")) +"\n";
+
+                currentText += "int d = ( a * b ) + b ; \n";
+                interpreter.interpret("int d = ( a * b ) + b ;");
+                currentText += "Stored value: d = " + Integer.toString(interpreter.getValue("d")) +"\n";
+
+                currentText += "a = ( d / b ) - ( a - 2 ) ; \n";
+                interpreter.interpret("a = ( d / b ) - ( a - 2 ) ;");
+                currentText += "Stored value: a = " + Integer.toString(interpreter.getValue("a")) +"\n";
 
                 log.setText(currentText);
             }
