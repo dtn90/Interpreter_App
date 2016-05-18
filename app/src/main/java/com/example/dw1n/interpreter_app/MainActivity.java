@@ -54,14 +54,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 lineNum++;
-                // Parse input
-                // If input is not within language output error message
-                // create and add shape to relative layout
                 input = (EditText) findViewById(R.id.view_input);
-
                 interpreter.interpret(input.getText().toString());
-//                interpreter.interpret("circle 150 300 200 3 ;");
-//                interpreter.interpret("rect 150 150 200 200 1 ;");
                 currentText += Integer.toString(lineNum) + ": " + input.getText() + "\n";
 
                 log.setText(currentText);
@@ -76,27 +70,43 @@ public class MainActivity extends AppCompatActivity {
         filler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShapeFactory BWShapeFactory1 = AbstractShapeFactory.getShapeFactory(1);
-                Shape BWRectangle = BWShapeFactory1.getRectangle(context, 100, 100, 200, 200);
-                ShapeFactory BGShapeFactory1 = AbstractShapeFactory.getShapeFactory(2);
-                Shape BGRectangle = BGShapeFactory1.getRectangle(context, 300, 100, 400, 200);
-                ShapeFactory shapeFactory1 = AbstractShapeFactory.getShapeFactory(3);
-                Shape RORectangle = shapeFactory1.getRectangle(context, 500, 100, 600, 200);
+                currentText += "*************************** \n" +
+                        " Testing Shape Creation... \n" +
+                        "*************************** \n";
 
-                ShapeFactory BWShapeFactory2 = AbstractShapeFactory.getShapeFactory(1);
-                Shape BWCircle = BWShapeFactory2.getCircle(context, 150, 300, 50);
-                ShapeFactory BGShapeFactory2 = AbstractShapeFactory.getShapeFactory(2);
-                Shape BGCircle = BGShapeFactory2.getCircle(context, 350, 300, 50);
-                ShapeFactory ROShapeFactory2 = AbstractShapeFactory.getShapeFactory(3);
-                Shape ROCircle = ROShapeFactory2.getCircle(context, 550, 300, 50);
+                currentText += "rect 100 100 200 200 1 ; \n";
+                currentText += "rect 300 100 400 200 2 ; \n";
+                currentText += "rect 500 100 600 200 3 ; \n";
 
-                shapeLayout.addView(BWRectangle);
-                shapeLayout.addView(BGRectangle);
-                shapeLayout.addView(RORectangle);
+                currentText += "circle 150 300 50 1 ; \n";
+                currentText += "circle 350 300 50 2 ; \n";
+                currentText += "circle 550 300 50 3 ; \n";
 
-                shapeLayout.addView(BWCircle);
-                shapeLayout.addView(BGCircle);
-                shapeLayout.addView(ROCircle);
+                interpreter.interpret("rect 100 100 200 200 1 ;");
+                interpreter.interpret("rect 300 100 400 200 2 ;");
+                interpreter.interpret("rect 500 100 600 200 3 ;");
+
+                interpreter.interpret("circle 150 300 50 1 ;");
+                interpreter.interpret("circle 350 300 50 2 ;");
+                interpreter.interpret("circle 550 300 50 3 ;");
+
+                currentText += "*************************** \n" +
+                        " Testing Variable Arithmetic... \n" +
+                        "*************************** \n";
+
+                currentText += "int a = 100 ; \n";
+                currentText += "int b = 300 ; \n";
+                currentText += "a = a + b ; \n";
+
+                interpreter.interpret("int a = 100 ;");
+                interpreter.interpret("int b = 300 ;");
+                interpreter.interpret("a = a + b ;");
+                currentText += "*************************** \n" +
+                        "Evaluating a = a + b; \n";
+                currentText += "a = " + Integer.toString(interpreter.getValue("a"));
+
+
+                log.setText(currentText);
             }
         });
     }
