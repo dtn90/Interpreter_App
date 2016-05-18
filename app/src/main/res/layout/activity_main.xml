@@ -29,7 +29,7 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:gravity="bottom"
-        android:text="Error Message"
+        android:text="Input Log"
         android:layout_alignTop="@+id/button_clear"
         android:layout_above="@+id/button_compile"
         android:layout_toLeftOf="@+id/button_clear"

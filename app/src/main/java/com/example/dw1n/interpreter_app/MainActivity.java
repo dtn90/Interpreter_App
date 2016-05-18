@@ -96,23 +96,28 @@ public class MainActivity extends AppCompatActivity {
 
                 currentText += "int a = 5 ; \n";
                 interpreter.interpret("int a = 5 ;");
-                currentText += "Stored value: a = " + Integer.toString(interpreter.getValue("a")) +"\n";
+                currentText += "Stored value: a = " +
+                        Integer.toString(interpreter.getValue("a")) +"\n";
 
                 currentText += "int b = 100 ; \n";
                 interpreter.interpret("int b = 100 ;");
-                currentText += "Stored value: b = " + Integer.toString(interpreter.getValue("b")) +"\n";
+                currentText += "Stored value: b = " +
+                        Integer.toString(interpreter.getValue("b")) +"\n";
 
                 currentText += "int c =  a * b; \n";
                 interpreter.interpret("int c = a * b ;");
-                currentText += "Stored value: c = " + Integer.toString(interpreter.getValue("c")) +"\n";
+                currentText += "Stored value: c = " +
+                        Integer.toString(interpreter.getValue("c")) +"\n";
 
                 currentText += "int d = ( a * b ) + b ; \n";
                 interpreter.interpret("int d = ( a * b ) + b ;");
-                currentText += "Stored value: d = " + Integer.toString(interpreter.getValue("d")) +"\n";
+                currentText += "Stored value: d = " +
+                        Integer.toString(interpreter.getValue("d")) +"\n";
 
                 currentText += "a = ( d / b ) - ( a - 2 ) ; \n";
                 interpreter.interpret("a = ( d / b ) - ( a - 2 ) ;");
-                currentText += "Stored value: a = " + Integer.toString(interpreter.getValue("a")) +"\n";
+                currentText += "Stored value: a = " +
+                        Integer.toString(interpreter.getValue("a")) +"\n";
 
                 log.setText(currentText);
             }
