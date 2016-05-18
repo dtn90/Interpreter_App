@@ -113,7 +113,7 @@ public class Interpreter {
 
       if (arg5Node.nodeType.equals("IdentifierNode")) {
         s = symbolTable.get(((IdentifierNode) arg5Node).name);
-      } else if (arg4Node.nodeType.equals("LiteralIntegerNode")) {
+      } else if (arg5Node.nodeType.equals("LiteralIntegerNode")) {
         s = ((LiteralIntegerNode) arg5Node).value;
       }
 
