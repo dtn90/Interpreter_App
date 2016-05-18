@@ -102,9 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 interpreter.interpret("int b = 300 ;");
                 interpreter.interpret("a = a + b ;");
                 currentText += "*************************** \n" +
-                        "Evaluating a = a + b; \n";
+                        "Evaluating a = a + b; \n *************************** \n";
                 currentText += "a = " + Integer.toString(interpreter.getValue("a"));
-
 
                 log.setText(currentText);
             }
